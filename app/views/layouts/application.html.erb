@@ -1,0 +1,43 @@
+<!-- START:head -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- START_HIGHLIGHT -->
+  <title>Pragprog Books Online Store</title>
+<!-- END_HIGHLIGHT -->
+  <!-- <label id="code.slt"/> --><%= stylesheet_link_tag    "application", media: "all",
+    "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %><!-- <label id="code.jlt"/> -->
+  <%= csrf_meta_tags %><!-- <label id="code.csrf"/> -->
+</head>
+<!-- END:head -->
+<body class="<%= controller.controller_name %>">
+<!-- START_HIGHLIGHT -->
+<%= render 'layouts/user_widget' %>
+  <div id="banner">
+    <%= image_tag("logo.png") %>
+    <%= @page_title || "Pragmatic Bookshelf" %><!-- <label id="code.depot.e.title"/> -->
+  </div>
+  <div id="columns">
+    <div id="side">
+      <ul>
+        <li><a href="http://www....">Home</a></li>
+        <li><a href="http://www..../faq">Questions</a></li>
+        <li><a href="http://www..../news">News</a></li>
+        <li><a href="http://www..../contact">Contact</a></li>
+        <%if user_info_custom%>
+            <li style="color: #bbffbb; font-style: italic; font-weight: bold"><%= l date_time_custom, :format => :long %></li>
+        <%else%>
+            <li style="color: #bbffbb; font-style: italic; font-weight: bold">Your last visited was too long ago.</li>
+        <%end%>
+      </ul>
+    </div>
+    <div id="main">
+<!-- END_HIGHLIGHT -->
+      <%= yield %><!-- <label id="code.depot.e.include"/> -->
+<!-- START_HIGHLIGHT -->
+    </div>
+  </div>
+<!-- END_HIGHLIGHT -->
+</body>
+</html>
